@@ -1,4 +1,5 @@
 import tiktoken
+import datetime
 
 while True:
     enc = tiktoken.get_encoding("cl100k_base")
@@ -22,6 +23,7 @@ while True:
     output_cost = (token_count / 1_000_000) * price_per_1m_tokens_output    
 
     output_content = f"\n"
+    output_content += f"[{datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}]\n"
     output_content += f"Input: {my_input}\n"
     output_content += f"Word count: {word_count}\n"
     output_content += f"Token count: {token_count}\n"
